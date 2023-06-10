@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printall.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aprieto- <aprieto-@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 19:04:34 by aprieto-          #+#    #+#             */
-/*   Updated: 2023/06/09 14:38:39 by aprieto-         ###   ########.fr       */
+/*   Created: 2023/06/09 14:08:57 by aprieto-          #+#    #+#             */
+/*   Updated: 2023/06/09 14:09:24 by aprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-
-
-int	ft_printf(char const *str, ...)
+void	ft_printall(char c, va_list args, int *len)
 {
-	va_list	args;
-	int		i;
-	int		len;
-
-	i = 0;
-	len = 0;
-	va_start(args, str);
-	while (str[i])
-	{
-		if (str[i] == '%')
-		{
-			ft_printall(str[++i], args, &len);
-		}
-		else
-			len += ft_putchr(str[i]);
-		i++;
-	}
-	va_end(args);
-	return (len);
+	if (c == 'c')
+		len += ft_putchr(va_arg(args, int));
+	if (c == 's')
+		ft_pf_putstr(va_arg(args, char *), len);
+	if (c == 'p')
+		ft_printptr(va_arg(args, unsigned long long), len);
 }

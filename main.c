@@ -2,8 +2,10 @@
 
 int main(void){
     
-    int i = printf("%c\n", 'c');
-    int j =ft_printf("%c\n", 'c');
-
-    printf("%d\n%d", i, j);
+    char *c;
+    int i = printf("%p\n", c);
+    int j = ft_printf("%p\n", c);
+    
+    
+    printf("Long original: %d\nLong mio: %d\n", i, j);
 }
