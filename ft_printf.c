@@ -6,13 +6,11 @@
 /*   By: aprieto- <aprieto-@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 19:04:34 by aprieto-          #+#    #+#             */
-/*   Updated: 2023/06/09 14:38:39 by aprieto-         ###   ########.fr       */
+/*   Updated: 2023/06/11 19:26:20 by aprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-
 
 int	ft_printf(char const *str, ...)
 {

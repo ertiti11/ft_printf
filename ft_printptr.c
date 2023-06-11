@@ -6,15 +6,18 @@
 /*   By: aprieto- <aprieto-@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 14:38:51 by aprieto-          #+#    #+#             */
-/*   Updated: 2023/06/09 14:57:17 by aprieto-         ###   ########.fr       */
+/*   Updated: 2023/06/11 19:19:09 by aprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printptr(unsigned long long ptr, int *len)
+int	ft_printptr(unsigned long long ptr)
 {
-	ft_pf_putstr("0x", len);
+	int len;
+	len =0;
+
+	ft_pf_putstr("0x");
 	if (ptr == 0)
 	{
 		len+=ft_putchr('0');
@@ -25,24 +28,31 @@ int	ft_printptr(unsigned long long ptr, int *len)
         len += ft_ptrlen(ptr);
 	}
 	len += 1;
+	return (len);
+	
 }
 
-void	ft_putp(uintptr_t num)
+int	ft_putp(uintptr_t num)
 {
+	int len;
+	len =0;
 	if (num >= 16)
 	{
-		ft_putp(num / 16);
-		ft_putp(num % 16);
+		len += ft_putp(num / 16);
+		len += ft_putp(num % 16);
+		
 	}
 	else
 	{
 		if (num <= 9)
 		{
-			ft_putchr(num + '0');
+			len+=ft_putchr(num + '0');
+			
 		}
 		else
-			ft_putchr(num - 10 + 'a');
+			len += ft_putchr(num - 10 + 'a');
 	}
+	return (len);
 }
 
 int	ft_ptrlen(uintptr_t ptr)
@@ -54,5 +64,6 @@ int	ft_ptrlen(uintptr_t ptr)
 		len++;
 		ptr = ptr / 16;
 	}
+	printf("\ndevuelta ft_ptrlen: %d\n",len);
 	return (len);
 }
