@@ -6,7 +6,7 @@
 /*   By: aprieto- <aprieto-@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 14:38:51 by aprieto-          #+#    #+#             */
-/*   Updated: 2023/06/11 19:19:09 by aprieto-         ###   ########.fr       */
+/*   Updated: 2023/06/11 23:46:28 by aprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_printptr(unsigned long long ptr)
 	int len;
 	len =0;
 
-	ft_pf_putstr("0x");
+	len += ft_pf_putstr("0x");
 	if (ptr == 0)
 	{
 		len+=ft_putchr('0');
@@ -27,7 +27,8 @@ int	ft_printptr(unsigned long long ptr)
 		ft_putp(ptr);
         len += ft_ptrlen(ptr);
 	}
-	len += 1;
+	
+	
 	return (len);
 	
 }
@@ -64,6 +65,6 @@ int	ft_ptrlen(uintptr_t ptr)
 		len++;
 		ptr = ptr / 16;
 	}
-	printf("\ndevuelta ft_ptrlen: %d\n",len);
+	
 	return (len);
 }
