@@ -3,98 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aprieto- <aprieto-@42malaga.student.com    +#+  +:+       +#+        */
+/*   By: aprieto- <aprieto-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 09:28:38 by ajordan-          #+#    #+#             */
-/*   Updated: 2023/06/12 00:05:37 by aprieto-         ###   ########.fr       */
+/*   Updated: 2023/06/12 14:16:17 by aprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-*	DESCRIPTION
-*	Allocates (with malloc) and returns a string representing the integer 
-*	received as an argument. Negative numbers must be handled.
-*	PARAMETERS
-*	#1. the integer to convert.
-*	RETURN VALUES
-*	The string representing the integer. NULL if the allocation fails.
-*/
+#include "ft_printf.h"
 
-
-#include <stdlib.h>
-#include <stdio.h>
-static void	ft_isneg(int *n, int *neg, int *tmp)
+static int	ft_digit_count(long int nb)
 {
-	if (*n == -2147483648)
-	{
-		*n = *n + 1;
-		*neg = -1;
-		*tmp = 1;
-		*n = *n * -1;
-	}
-	else if (*n < 0)
-	{
-		*neg = -1;
-		*n = *n * -1;
-		*tmp = 0;
-	}
-	else if (*n >= 0)
-	{
-		*neg = 1;
-		*tmp = 0;
-	}
-}
+	int	count;
 
-static int	ft_itoa_len(int n)
-{
-	int	len;
-
-	len = 0;
-	while (n > 9)
+	count = 0;
+	if (nb == 0)
+		count = 1;
+	else
 	{
-		n = n / 10;
-		len++;
+		if (nb < 0)
+		{
+			nb *= -1;
+			count++;
+		}
+		while (nb > 0)
+		{
+			nb /= 10;
+			count++;
+		}
 	}
-	len++;
-	return (len);
-}
-
-static void	ft_itoa_write(char *str, int len, int n, int tmp)
-{
-	while (n > 9)
-	{
-		str[len--] = (n % 10) + '0' + tmp;
-		n = n / 10;
-		tmp = 0;
-	}
-	str[len] = n + '0';
+	return (count);
 }
 
 char	*ft_itoa(int n)
 {
-	int		neg;
-	int		tmp;
-	int		len;
-	char	*str;
+	char		*str;
+	int			i;
+	long int	nb;
 
-	ft_isneg(&n, &neg, &tmp);
-	len = ft_itoa_len(n);
-	if (neg == -1)
+	nb = n;
+	i = ft_digit_count(nb);
+	str = malloc(i * sizeof(char) + 1);
+	if (!(str))
+		return (0);
+	str[i--] = 0;
+	if (nb == 0)
+		str[0] = '0';
+	if (nb < 0)
 	{
-		str = malloc((len + 2) * sizeof(char));
-		if (!str)
-			return (0);
-		len++;
 		str[0] = '-';
+		nb *= -1;
 	}
-	else
+	while (nb > 0)
 	{
-		str = malloc((len + 1) * sizeof(char));
-		if (!str)
-			return (0);
+		str[i--] = nb % 10 + '0';
+		nb /= 10;
 	}
-	str[len--] = '\0';
-	ft_itoa_write(str, len, n, tmp);
-	printf("itoa: %s\n",str);
 	return (str);
 }
