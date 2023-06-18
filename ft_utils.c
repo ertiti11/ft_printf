@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aprieto- <aprieto-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: aprieto- <aprieto-@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 14:38:03 by aprieto-          #+#    #+#             */
-/*   Updated: 2023/06/12 16:51:58 by aprieto-         ###   ########.fr       */
+/*   Updated: 2023/06/18 00:49:09 by aprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	ft_pf_putstr(char *str)
 		len += ft_putchr(str[i]);
 		i++;
 	}
-	// devuelve dos despues del 0x
 	return (len);
 }
 
@@ -36,8 +35,5 @@ int	ft_putchr(char c)
 
 int	ft_printnbr(int num)
 {
-
-	
-	return(ft_pf_putstr(ft_itoa(num)));
-	
+	return (ft_pf_putstr(ft_itoa(num)));
 }

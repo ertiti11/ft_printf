@@ -6,7 +6,7 @@
 /*   By: aprieto- <aprieto-@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 19:04:34 by aprieto-          #+#    #+#             */
-/*   Updated: 2023/06/11 23:43:31 by aprieto-         ###   ########.fr       */
+/*   Updated: 2023/06/18 00:47:32 by aprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ int	ft_printf(char const *str, ...)
 		i++;
 	}
 	va_end(args);
-	
 	return (len);
 }

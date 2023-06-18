@@ -2,7 +2,8 @@ CFLAGS  = -Wall -Wextra -Werror
 NAME    = libftprintf.a
 AR		= ar -rcs
 SRC		= \
-	ft_printf.c
+	ft_printf.c ft_itoa.c ft_printall.c ft_utils.c ft_printptr.c ft_printf_hex.c
+	
 OBJ		= ${SRC:.c=.o}
 
 all: $(NAME)
