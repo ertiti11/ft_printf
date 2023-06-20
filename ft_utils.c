@@ -6,7 +6,7 @@
 /*   By: aprieto- <aprieto-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 14:38:03 by aprieto-          #+#    #+#             */
-/*   Updated: 2023/06/20 20:09:31 by aprieto-         ###   ########.fr       */
+/*   Updated: 2023/06/20 21:16:55 by aprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,27 @@ int	ft_printnbr(int num)
 
 int	print_unsigned(unsigned int num)
 {
-	return ft_pf_putstr(ft_utoa(num));
+	return (ft_pf_putstr(ft_utoa(num)));
+}
+
+void	my_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+int	my_put_nbr(int n)
+{
+	if (n < 0)
+	{
+		my_putchar('-');
+		n = -n;
+	}
+	if (n >= 10)
+	{
+		my_put_nbr(n / 10);
+		my_putchar(n % 10 + '0');
+	}
+	if (n < 10)
+		my_putchar(n % 10 + '0');
+	return (n);
 }
