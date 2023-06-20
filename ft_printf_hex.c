@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aprieto- <aprieto-@42malaga.student.com    +#+  +:+       +#+        */
+/*   By: aprieto- <aprieto-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 01:00:06 by aprieto-          #+#    #+#             */
-/*   Updated: 2023/06/18 20:14:17 by aprieto-         ###   ########.fr       */
+/*   Updated: 2023/06/20 21:12:58 by aprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,69 @@ int	ft_print_hex_mayus(int num)
 		index--;
 	}
 	return (len);
+}
+
+int	ft_long_numhex(unsigned int num)
+{
+	size_t	i;
+
+	i = 0;
+	if (num == 0)
+		return (0);
+	while (num > 0)
+	{
+		num = num / 16;
+		i++;
+	}
+	return (i);
+}
+
+int	ft_hex_toa(unsigned int num)
+{
+	size_t	i;
+	char	*result;
+	char	*base;
+
+	if (num == 0)
+	{
+		ft_putchr('0');
+		return (1);
+	}
+	base = "0123456789abcdef";
+	i = ft_long_numhex(num);
+	result = (char *)malloc(sizeof(char) * (i + 1));
+	result[i] = 0;
+	while (num > 0)
+	{
+		result[i - 1] = base[num % 16];
+		i--;
+		num = num / 16;
+	}
+	free(result);
+	return (ft_pf_putstr(result));
+}
+
+int	ft_hex_toa_mayus(unsigned int num)
+{
+	size_t	i;
+	char	*result;
+	char	*base;
+
+	if (num == 0)
+	{
+		ft_putchr('0');
+		return (1);
+	}
+	base = "0123456789ABCDEF";
+	i = ft_long_numhex(num);
+	result = (char *)malloc(sizeof(char) * (i + 1));
+	result[i] = 0;
+	while (num > 0)
+	{
+		result[i - 1] = base[num % 16];
+		i--;
+		num = num / 16;
+	}
+	free(result);
+	return (ft_pf_putstr(result));
 }

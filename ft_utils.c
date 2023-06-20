@@ -6,7 +6,7 @@
 /*   By: aprieto- <aprieto-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 14:38:03 by aprieto-          #+#    #+#             */
-/*   Updated: 2023/06/20 16:31:36 by aprieto-         ###   ########.fr       */
+/*   Updated: 2023/06/20 20:09:31 by aprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,7 @@ int	ft_printnbr(int num)
 	return (ft_pf_putstr(ft_itoa(num)));
 }
 
-int	print_unsigned(int num)
+int	print_unsigned(unsigned int num)
 {
-	unsigned int numero;
-	numero = num;
-	
-	
-	return (ft_pf_putstr(ft_itoa(num)));
+	return ft_pf_putstr(ft_utoa(num));
 }

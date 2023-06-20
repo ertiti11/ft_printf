@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aprieto- <aprieto-@42malaga.student.com    +#+  +:+       +#+        */
+/*   By: aprieto- <aprieto-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 19:04:34 by aprieto-          #+#    #+#             */
-/*   Updated: 2023/06/18 00:47:32 by aprieto-         ###   ########.fr       */
+/*   Updated: 2023/06/20 20:16:59 by aprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ int	ft_printf(char const *str, ...)
 	while (str[i])
 	{
 		if (str[i] == '%')
-		{
 			ft_printall(str[++i], args, &len);
-		}
 		else
 			len += ft_putchr(str[i]);
 		i++;

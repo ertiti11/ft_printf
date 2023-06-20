@@ -6,7 +6,7 @@
 /*   By: aprieto- <aprieto-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 09:28:38 by ajordan-          #+#    #+#             */
-/*   Updated: 2023/06/20 16:05:05 by aprieto-         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:29:20 by aprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,30 @@ char	*ft_itoa(int n)
 		str[0] = '-';
 		nb *= -1;
 	}
+	while (nb > 0)
+	{
+		str[i--] = nb % 10 + '0';
+		nb /= 10;
+	}
+	free(str);
+	return (str);
+}
+
+char *ft_utoa(unsigned int n)
+{
+	char		*str;
+	int			i;
+	long int	nb;
+
+	nb = n;
+	i = ft_digit_count(nb);
+	str = malloc(i * sizeof(char) + 1);
+	if (!(str))
+		return (0);
+	str[i--] = 0;
+	if (nb == 0)
+		str[0] = '0';
+	
 	while (nb > 0)
 	{
 		str[i--] = nb % 10 + '0';

@@ -6,7 +6,7 @@
 /*   By: aprieto- <aprieto-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 19:03:39 by aprieto-          #+#    #+#             */
-/*   Updated: 2023/06/20 16:31:58 by aprieto-         ###   ########.fr       */
+/*   Updated: 2023/06/20 21:09:53 by aprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ char	*ft_itoa(int n);
 void	ft_printall(char c, va_list arg, int *len);
 int		ft_pf_putstr(char *str);
 int		ft_printnbr(int num);
-int		print_unsigned(int num);
+int		ft_long_numhex(unsigned int num);
+int		ft_hex_toa(unsigned int num);
+int		ft_hex_toa_mayus(unsigned int num);
+char	*ft_utoa(unsigned int n);
+int		print_unsigned(unsigned int num);
 int		ft_print_hex(int num);
 int		ft_printptr(unsigned long long ptr);
 int		ft_putp(uintptr_t num);
