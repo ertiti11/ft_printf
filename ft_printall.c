@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printall.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aprieto- <aprieto-@42malaga.student.com    +#+  +:+       +#+        */
+/*   By: aprieto- <aprieto-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 14:08:57 by aprieto-          #+#    #+#             */
-/*   Updated: 2023/06/18 00:47:26 by aprieto-         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:32:40 by aprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	ft_printall(char c, va_list args, int *len)
 		*len += ft_printnbr(va_arg(args, int));
 	if (c == 'i')
 		*len += ft_printnbr(va_arg(args, int));
+	if (c == 'u')
+		*len += print_unsigned(va_arg(args, int));
 	if (c == 'x')
 		*len += ft_print_hex(va_arg(args, int));
 	if (c == 'X')

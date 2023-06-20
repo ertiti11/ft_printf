@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aprieto- <aprieto-@42malaga.student.com    +#+  +:+       +#+        */
+/*   By: aprieto- <aprieto-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 14:38:03 by aprieto-          #+#    #+#             */
-/*   Updated: 2023/06/18 00:49:09 by aprieto-         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:31:36 by aprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ int	ft_pf_putstr(char *str)
 
 	len = 0;
 	i = 0;
+	if (str == NULL)
+	{
+		ft_pf_putstr("(null)");
+		return (6);
+	}
 	while (str[i])
 	{
 		len += ft_putchr(str[i]);
@@ -35,5 +40,14 @@ int	ft_putchr(char c)
 
 int	ft_printnbr(int num)
 {
+	return (ft_pf_putstr(ft_itoa(num)));
+}
+
+int	print_unsigned(int num)
+{
+	unsigned int numero;
+	numero = num;
+	
+	
 	return (ft_pf_putstr(ft_itoa(num)));
 }

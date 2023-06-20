@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aprieto- <aprieto-@42malaga.student.com    +#+  +:+       +#+        */
+/*   By: aprieto- <aprieto-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 09:28:38 by ajordan-          #+#    #+#             */
-/*   Updated: 2023/06/18 00:48:50 by aprieto-         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:05:05 by aprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ char	*ft_itoa(int n)
 		str[i--] = nb % 10 + '0';
 		nb /= 10;
 	}
+	free(str);
 	return (str);
 }
